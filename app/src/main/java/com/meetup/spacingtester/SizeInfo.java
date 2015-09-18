@@ -6,8 +6,6 @@ import android.databinding.Bindable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.meetup.spacingtester.BR;
-
 public class SizeInfo extends BaseObservable implements Parcelable {
     private float textSize;
     private float lineSpacingMultiplier;
