@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Spacing Tester</string>
+    <string name="font_size">Text size: %.1f</string>
+    <string name="spacing_multiplier">Multiplier: %.1f</string>
+    <string name="spacing_extra">Extra: %.1f</string>
+    <string name="font_name">%1$s %2$s %3$s</string>
+    <string name="pangrams">The quick brown fox jumps over the lazy dog.\nDoc, note: I dissent. A fast never prevents a fatness. I diet on cod.</string>
+    <string name="italic">Italic</string>
+    <string name="normal">Normal</string>
+</resources>

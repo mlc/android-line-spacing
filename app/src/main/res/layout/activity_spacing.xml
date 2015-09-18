@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="sizes" type="com.meetup.spacingtester.SizeInfo"/>
+        <variable name="handlers" type="com.meetup.spacingtester.SizeHandlers"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:elevation="3dp"
+            android:columnCount="6"
+            android:rowCount="2"
+            android:columnOrderPreserved="true">
+            <TextView
+                android:layout_columnSpan="2"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:layout_columnWeight="1"
+                android:text="@{@string/font_size(sizes.textSize)}"
+                tools:text="Text Size: 13"/>
+            <TextView
+                android:layout_columnSpan="2"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:layout_columnWeight="1"
+                android:text="@{@string/spacing_multiplier(sizes.lineSpacingMultiplier)}"
+                tools:text="Text Size: 13"/>
+            <TextView
+                android:layout_columnSpan="2"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:text="@{@string/spacing_extra(sizes.lineSpacingExtra)}"
+                tools:text="Text Size: 13"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="+"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.plusTextSize}"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="-"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.minusTextSize}"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="+"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.plusSpacingMultiplier}"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="-"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.minusSpacingMultiplier}"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="+"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.plusSpacingExtra}"/>
+            <Button style="@android:style/Widget.Material.Button.Borderless"
+                android:text="-"
+                android:layout_gravity="center"
+                android:minWidth="36dp"
+                android:onClick="@{handlers.minusSpacingExtra}"/>
+        </GridLayout>
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="font" type="com.scopely.fontain.interfaces.Font"/>
+        <variable name="sizes" type="com.meetup.spacingtester.SizeInfo"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{@string/font_name(font.family.name, font.weight, font.slope ? @string/italic : @string/normal)}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@{sizes.textSize}"
+            android:lineSpacingExtra="@{sizes.lineSpacingExtra}"
+            android:lineSpacingMultiplier="@{sizes.lineSpacingMultiplier}"
+            android:text="@string/pangrams"
+            android:layout_marginTop="4dp"
+            app:font="@{font}"/>
+    </LinearLayout>
+</layout>
