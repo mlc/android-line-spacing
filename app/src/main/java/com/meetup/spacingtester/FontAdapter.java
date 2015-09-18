@@ -3,6 +3,8 @@ package com.meetup.spacingtester;
 import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
+import android.databinding.OnRebindCallback;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +58,12 @@ public class FontAdapter extends ArrayAdapter<Font> {
         if (convertView == null) {
             binding = FontItemBinding.inflate(LayoutInflater.from(getContext()), parent, false);
             view = binding.getRoot();
+            binding.addOnRebindCallback(new OnRebindCallback<FontItemBinding>() {
+                @Override
+                public void onBound(FontItemBinding b) {
+                    b.metrics.setText(fontMetricsToString(b.swatch.getPaint().getFontMetrics()));
+                }
+            });
         } else {
             binding = DataBindingUtil.getBinding(convertView);
             view = convertView;
@@ -63,6 +71,14 @@ public class FontAdapter extends ArrayAdapter<Font> {
         binding.setSizes(sizes);
         binding.setFont(getItem(position));
         return view;
+    }
+
+    static String fontMetricsToString(Paint.FontMetrics fm) {
+        return "top:\u00a0" + fm.top +
+                ", ascent:\u00a0" + fm.ascent +
+                ", descent:\u00a0" + fm.descent +
+                ", bottom:\u00a0" + fm.bottom +
+                ", leading:\u00a0" + fm.leading;
     }
 
     @BindingAdapter("bind:font")
